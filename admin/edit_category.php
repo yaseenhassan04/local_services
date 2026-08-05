@@ -5,7 +5,9 @@ require_once '../includes/functions.php';
 require_once '../includes/auth.php'; 
 
 // 1. حماية الصفحة: يجب أن يكون المدير فقط
-check_login('admin'); 
+check_login('admin');
+$current_page = 'edit_category';
+
 
 global $pdo;
 $category_id = (int) sanitize_input($_GET['id'] ?? 0);
@@ -92,7 +94,130 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 // إذا كان الطلب GET أو فشل الـ POST، نظهر النموذج:
-include_once '../includes/header.php'; 
+include_once '../includes/header.php';
+?>
+
+<button onclick="toggleTheme()" id="themeToggle" title="تبديل المظهر"
+        style="position:fixed;top:15px;left:20px;z-index:9999;
+               width:38px;height:38px;background:#0e1726;
+               border:1px solid #1b2e4b;border-radius:50%;
+               display:flex;align-items:center;justify-content:center;
+               color:#888ea8;font-size:18px;cursor:pointer;
+               box-shadow:0 2px 10px rgba(0,0,0,.3);transition:all .2s;">
+    <i class="las la-sun" id="themeIcon"></i>
+</button>
+
+<?php
+include_once '../includes/admin_sidebar.php';
+?>
+<style>
+:root {
+  --sidebar-bg: #0e1726; --card-border: #1b2e4b;
+  --sidebar-width: 255px; --header-height: 70px;
+}
+.container.admin-content { margin-right: 255px; transition: margin-right .3s; }
+@media(max-width:900px){ .container.admin-content { margin-right: 0; } }
+
+/* ══ LIGHT MODE ══════════════════════════════════════ */
+body.light-mode {
+    --dark:   #f0f2f5;
+    --card:   #ffffff;
+    --border: #e5e7eb;
+    --txt:    #1a2332;
+    --muted:  #6b7280;
+    --dark2:  #374151;
+    --pri-lt: rgba(67,97,238,.1);
+    --suc-lt: rgba(0,171,85,.1);
+    --war-lt: rgba(226,160,63,.1);
+    --dan-lt: rgba(231,81,90,.1);
+    --inf-lt: rgba(33,150,243,.1);
+    --pur-lt: rgba(128,93,202,.1);
+}
+body.light-mode,
+body.light-mode .top-nav,
+body.light-mode .sidebar,
+body.light-mode nav.top-nav { background-color: #ffffff; }
+body.light-mode .top-nav,
+body.light-mode nav.top-nav { border-bottom-color: #e5e7eb; box-shadow: 0 2px 10px rgba(0,0,0,.08); }
+body.light-mode .sidebar     { border-left-color: #e5e7eb; }
+body.light-mode .xcard,
+body.light-mode .fin-card,
+body.light-mode .report-card,
+body.light-mode .card,
+body.light-mode [class*="-card"] { background:#ffffff; border-color:#e5e7eb; }
+body.light-mode .nav-icon    { background:#f3f4f6; border-color:#e5e7eb; color:#6b7280; }
+body.light-mode .side-link   { color:#6b7280; }
+body.light-mode .side-link:hover { background:rgba(67,97,238,.08); color:var(--primary); }
+body.light-mode .side-link.active { background:var(--primary); color:#fff; }
+body.light-mode .select-status,
+body.light-mode select,
+body.light-mode input,
+body.light-mode textarea     { background:#f9fafb; border-color:#e5e7eb; color:#1a2332; }
+body.light-mode table thead th { background:#1a2332 !important; color:#fff !important; }
+body.light-mode .commission-box { background:linear-gradient(135deg,rgba(67,97,238,.05),rgba(0,171,85,.05)); }
+body.light-mode .commission-row { border-bottom-color:#e5e7eb; }
+body.light-mode .proof-box   { background:#f9fafb; border-color:#e5e7eb; }
+body, .top-nav, nav.top-nav, .sidebar, .xcard, .fin-card, .report-card,
+.nav-icon, .commission-box, .card { transition: background .3s, border-color .3s, color .2s !important; }
+
+/* ══ LIGHT MODE — Sidebar Fix ══ */
+body.light-mode {
+    --dark-bg:    #f0f4f8;
+    --sidebar-bg: #ffffff;
+    --card-bg:    #ffffff;
+    --card-border:#e5e7eb;
+    --header-bg:  #ffffff;
+    --text-primary:#1a2332;
+    --text-muted: #6b7280;
+    --text-dark:  #374151;
+    --primary-light: rgba(67,97,238,.1);
+    --success-light: rgba(0,171,85,.1);
+    --warning-light: rgba(226,160,63,.1);
+    --danger-light:  rgba(231,81,90,.1);
+    --info-light:    rgba(33,150,243,.1);
+    --purple-light:  rgba(128,93,202,.1);
+}
+body.light-mode                   { background: #f0f4f8 !important; color: #1a2332 !important; }
+body.light-mode .app-sidebar      { background: #ffffff !important; border-color: #e5e7eb !important; box-shadow: -2px 0 12px rgba(0,0,0,.06) !important; }
+body.light-mode .app-header,
+body.light-mode header.app-header { background: #ffffff !important; border-bottom-color: #e5e7eb !important; box-shadow: 0 2px 10px rgba(0,0,0,.07) !important; }
+body.light-mode .sidebar-section-title { color: #9ca3af !important; }
+body.light-mode .sidebar-menu a   { color: #6b7280 !important; }
+body.light-mode .sidebar-menu a:hover { background: rgba(67,97,238,.08) !important; color: #4361ee !important; }
+body.light-mode .sidebar-menu a.active { background: #4361ee !important; color: #fff !important; }
+body.light-mode .sidebar-menu a.logout-link { color: #e7515a !important; }
+body.light-mode .sidebar-menu a.logout-link:hover { background: rgba(231,81,90,.08) !important; }
+body.light-mode .user-avatar-wrap,
+body.light-mode .profile-mini     { border-color: #e5e7eb !important; }
+body.light-mode .profile-mini .pname  { color: #1a2332 !important; }
+body.light-mode .profile-mini .pemail { color: #6b7280 !important; }
+
+/* Cards & Content */
+body.light-mode .xato-card,
+body.light-mode .stat-card,
+body.light-mode .nx-card,
+body.light-mode [class*="card"]   { background: #ffffff !important; border-color: #e5e7eb !important; }
+body.light-mode .header-logo span,
+body.light-mode .logo-text        { color: #1a2332 !important; }
+body.light-mode .header-toggle,
+body.light-mode .hdr-toggle       { color: #6b7280 !important; }
+body.light-mode .header-user .user-name { color: #1a2332 !important; }
+body.light-mode .header-user .user-role { color: #4361ee !important; }
+body.light-mode ::-webkit-scrollbar-track { background: #f1f5f9 !important; }
+body.light-mode ::-webkit-scrollbar-thumb { background: #d1d5db !important; }
+
+/* Tables */
+body.light-mode table thead th    { background: #f1f5f9 !important; color: #374151 !important; border-color: #e5e7eb !important; }
+body.light-mode table tbody td    { color: #374151 !important; border-color: #f1f5f9 !important; }
+body.light-mode table tbody tr:hover { background: #f8fafc !important; }
+
+/* Smooth transition */
+.app-sidebar, .app-header, header.app-header,
+.sidebar-menu a, [class*="card"], body {
+    transition: background .25s ease, border-color .25s ease, color .2s ease, box-shadow .25s ease !important;
+}
+</style>
+<?php 
 ?>
 
 <div class="container admin-content">
