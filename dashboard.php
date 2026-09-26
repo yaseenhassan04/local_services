@@ -1472,7 +1472,7 @@ if (!function_exists('translate_role')) {
     
 
 /* ══ LIGHT MODE — Dashboard ══════════════════════════════ */
-body.light-mode {
+html.light-mode, body.light-mode {
     --bg:       #f0f4f8;
     --bg2:      #e8edf3;
     --surface:  #ffffff;
@@ -1480,86 +1480,122 @@ body.light-mode {
     --border:   rgba(0,0,0,.09);
     --border2:  rgba(0,0,0,.14);
     --text:     #0f172a;
-    --text2:    #475569;
-    --text3:    #94a3b8;
+    --text2:    #334155;
+    --text3:    #64748b;
 }
-body.light-mode { background: var(--bg) !important; color: var(--text) !important; }
+body.light-mode { background: var(--bg) !important; color: #0f172a !important; }
 
-/* Header */
+/* ── Header ── */
 body.light-mode .app-header {
     background: #ffffff !important;
     border-bottom: 1px solid rgba(0,0,0,.1) !important;
     box-shadow: 0 2px 12px rgba(0,0,0,.07) !important;
 }
-body.light-mode .logo-text       { color: #0f172a !important; }
-body.light-mode .hdr-toggle      { color: #475569 !important; }
-body.light-mode .hdr-pill        { background: rgba(0,0,0,.06) !important; color: #475569 !important; border-color: rgba(0,0,0,.1) !important; }
-body.light-mode #themeToggle     { border-color: rgba(0,0,0,.15) !important; color: #475569 !important; }
+body.light-mode .logo-text         { color: #0f172a !important; }
+body.light-mode .hdr-toggle        { color: #334155 !important; }
+body.light-mode .hdr-pill          { background: rgba(0,0,0,.06) !important; color: #334155 !important; border-color: rgba(0,0,0,.1) !important; }
+body.light-mode #themeToggle       { border-color: rgba(0,0,0,.15) !important; color: #334155 !important; }
+body.light-mode .avatar-name       { color: #0f172a !important; }
+body.light-mode .avatar-role       { color: #3b82f6 !important; }
+body.light-mode .hdr-avatar        { background: #fff !important; border-color: rgba(0,0,0,.12) !important; }
+body.light-mode .hdr-btn           { background: #fff !important; border-color: rgba(0,0,0,.12) !important; color: #334155 !important; }
 
-/* Sidebar */
-body.light-mode .app-sidebar,
-body.light-mode aside            { background: #ffffff !important; border-color: rgba(0,0,0,.09) !important; }
-body.light-mode .side-link,
-body.light-mode .sidebar-link   { color: #475569 !important; }
-body.light-mode .side-link:hover { background: rgba(59,130,246,.08) !important; color: #3b82f6 !important; }
-body.light-mode .side-link.active { background: #3b82f6 !important; color: #fff !important; }
-body.light-mode .profile-mini .pname { color: #0f172a !important; }
-body.light-mode .profile-mini .pemail { color: #64748b !important; }
+/* ── Sidebar (adm-sidebar) ── */
+body.light-mode .adm-sidebar,
+body.light-mode aside              { background: #ffffff !important; border-color: rgba(0,0,0,.09) !important; box-shadow: -3px 0 12px rgba(0,0,0,.06) !important; }
+body.light-mode .adm-name          { color: #0f172a !important; }
+body.light-mode .adm-email         { color: #64748b !important; }
+body.light-mode .adm-group-hdr     { color: #64748b !important; }
+body.light-mode .adm-group-hdr:hover { background: rgba(59,130,246,.07) !important; color: #0f172a !important; }
+body.light-mode .adm-group-hdr.open { color: #0f172a !important; }
+body.light-mode .adm-items ul      { border-color: rgba(0,0,0,.08) !important; }
+body.light-mode .adm-items ul a    { color: #475569 !important; }
+body.light-mode .adm-items ul a:hover { background: rgba(59,130,246,.08) !important; color: #1d4ed8 !important; }
+body.light-mode .adm-items ul a.active { background: rgba(59,130,246,.12) !important; color: #1d4ed8 !important; border-color: rgba(59,130,246,.25) !important; }
+body.light-mode .adm-edit-link     { background: #f1f5f9 !important; border-color: rgba(0,0,0,.1) !important; color: #475569 !important; }
+body.light-mode .adm-footer        { color: #94a3b8 !important; border-color: rgba(0,0,0,.08) !important; }
 
-/* Nav user area */
-body.light-mode .nav-user        { color: #0f172a !important; }
-body.light-mode .nav-uname       { color: #0f172a !important; }
-body.light-mode .nav-urole       { color: #3b82f6 !important; }
+/* ── Page titles & text ── */
+body.light-mode .pg-title          { color: #0f172a !important; }
+body.light-mode .pg-sub            { color: #475569 !important; }
+body.light-mode .pg-sub a          { color: #2563eb !important; }
 
-/* Stat cards */
-body.light-mode .stat-card,
+/* ── Stat cards ── */
+body.light-mode .stat-card         { background: #ffffff !important; border-color: rgba(0,0,0,.08) !important; box-shadow: 0 2px 8px rgba(0,0,0,.06) !important; }
+body.light-mode .stat-val          { color: #0f172a !important; }
+body.light-mode .stat-lbl          { color: #475569 !important; }
+body.light-mode .stat-sub          { color: #64748b !important; }
+
+/* ── Cards ── */
 body.light-mode .nx-card,
-body.light-mode .svc-card,
-body.light-mode [class*="card"]  { background: #ffffff !important; border-color: rgba(0,0,0,.08) !important; box-shadow: 0 2px 8px rgba(0,0,0,.06) !important; }
-body.light-mode .stat-value      { color: #0f172a !important; }
-body.light-mode .stat-label      { color: #64748b !important; }
-body.light-mode .stat-sub        { color: #94a3b8 !important; }
+body.light-mode .svc-card          { background: #ffffff !important; border-color: rgba(0,0,0,.08) !important; box-shadow: 0 2px 8px rgba(0,0,0,.05) !important; }
+body.light-mode .nx-card-hdr       { border-color: rgba(0,0,0,.07) !important; }
+body.light-mode .nx-card-hdr h5    { color: #0f172a !important; }
+body.light-mode .nx-card-body      { color: #334155 !important; }
 
-/* Section titles */
-body.light-mode .sec-title,
-body.light-mode .section-title,
-body.light-mode h1, body.light-mode h2,
-body.light-mode h3, body.light-mode h4,
-body.light-mode h5                { color: #0f172a !important; }
-body.light-mode .text-muted,
-body.light-mode [class*="text2"],
-body.light-mode [class*="muted"] { color: #64748b !important; }
+/* ── Quick action cards ── */
+body.light-mode .qa-card           { background: #f8fafc !important; border-color: rgba(0,0,0,.08) !important; }
+body.light-mode .qa-title          { color: #0f172a !important; }
+body.light-mode .qa-sub            { color: #475569 !important; }
+body.light-mode .qa-arr            { color: #94a3b8 !important; }
 
-/* Tables */
-body.light-mode table            { background: #ffffff !important; }
-body.light-mode table thead      { background: #f8fafc !important; }
-body.light-mode table thead th   { color: #475569 !important; background: #f1f5f9 !important; border-color: rgba(0,0,0,.08) !important; }
-body.light-mode table tbody tr   { border-color: rgba(0,0,0,.06) !important; }
-body.light-mode table tbody tr:hover { background: #f8fafc !important; }
-body.light-mode table td         { color: #374151 !important; border-color: rgba(0,0,0,.06) !important; }
+/* ── Tables ── */
+body.light-mode .nx-table thead th { color: #374151 !important; background: #f1f5f9 !important; border-color: rgba(0,0,0,.08) !important; }
+body.light-mode .nx-table tbody tr { border-color: rgba(0,0,0,.06) !important; }
+body.light-mode .nx-table tbody tr:hover { background: #f8fafc !important; }
+body.light-mode .nx-table tbody td { color: #374151 !important; }
+body.light-mode .t-main            { color: #0f172a !important; }
+body.light-mode .t-id              { color: #2563eb !important; }
+body.light-mode .t-green           { color: #059669 !important; }
 
-/* Quick actions */
-body.light-mode .quick-action,
-body.light-mode .qa-card         { background: #ffffff !important; border-color: rgba(0,0,0,.08) !important; }
-body.light-mode .qa-title        { color: #0f172a !important; }
-body.light-mode .qa-desc         { color: #64748b !important; }
+/* ── Service cards ── */
+body.light-mode .svc-name          { color: #0f172a !important; }
+body.light-mode .svc-meta          { color: #64748b !important; }
+body.light-mode .svc-price         { color: #059669 !important; }
+body.light-mode .svc-thumb-placeholder { background: #f1f5f9 !important; }
 
-/* User list */
-body.light-mode .usr-item,
-body.light-mode .user-item       { border-color: rgba(0,0,0,.07) !important; }
-body.light-mode .usr-name        { color: #0f172a !important; }
-body.light-mode .usr-email       { color: #64748b !important; }
+/* ── User items ── */
+body.light-mode .adm-profile       { border-color: rgba(0,0,0,.08) !important; }
+body.light-mode [style*="color:var(--text)"]   { color: #0f172a !important; }
+body.light-mode [style*="color:var(--text2)"]  { color: #334155 !important; }
+body.light-mode [style*="color:var(--text3)"]  { color: #64748b !important; }
 
-/* Badges & pills stay colorful - no override needed */
+/* ── Progress bar ── */
+body.light-mode .prog-track        { background: #e2e8f0 !important; }
+body.light-mode .prog-head         { color: #0f172a !important; }
 
-/* Smooth transition */
-body, .app-header, .app-sidebar, aside,
-[class*="card"], [class*="-card"], table,
-.side-link, .sidebar-link {
-    transition: background .25s ease, border-color .25s ease, color .2s ease, box-shadow .25s ease !important;
+/* ── Empty state ── */
+body.light-mode .empty-icon        { background: #f1f5f9 !important; border-color: rgba(0,0,0,.08) !important; color: #94a3b8 !important; }
+body.light-mode .empty h4          { color: #0f172a !important; }
+body.light-mode .empty p           { color: #64748b !important; }
+
+/* ── Smooth transition ── */
+body, .app-header, .adm-sidebar, aside,
+.stat-card, .nx-card, .svc-card, .qa-card,
+.nx-table thead th, .nx-table tbody td,
+.adm-group-hdr, .adm-items ul a, .adm-name,
+.pg-title, .stat-val, .nx-card-hdr h5 {
+    transition: background .25s ease, border-color .25s ease,
+                color .2s ease, box-shadow .25s ease !important;
 }
 
 </style>
+<script>
+/* تطبيق الثيم قبل رسم الصفحة لمنع الوميض */
+if (localStorage.getItem('khadamati_theme') === 'light') {
+    document.documentElement.classList.add('light-mode');
+}
+/* placeholder حتى يتحمل admin_sidebar ويعرّف الدالة الحقيقية */
+window.toggleTheme = window.toggleTheme || function () {
+    var isLight = document.body.classList.toggle('light-mode');
+    document.documentElement.classList.toggle('light-mode', isLight);
+    localStorage.setItem('khadamati_theme', isLight ? 'light' : 'dark');
+    var icon  = document.getElementById('themeIcon');
+    var label = document.getElementById('themeLabel');
+    if (icon)  icon.className    = isLight ? 'las la-moon' : 'las la-sun';
+    if (label) label.textContent = isLight ? 'داكن' : 'فاتح';
+};
+</script>
 </head>
 
 <body>
@@ -1966,9 +2002,27 @@ body, .app-header, .app-sidebar, aside,
                                         <td style="font-size:12px;color:var(--text3);"><?php echo date('Y/m/d', strtotime($o['order_date'])); ?></td>
                                         <td><span class="pill pill-<?php echo $sc; ?>"><?php echo translate_status($o['status']); ?></span></td>
                                         <td>
-                                            <a href="/local_services/view_order.php?id=<?php echo $o['id']; ?>" class="btn btn-primary btn-sm">
-                                                <i class="las la-eye"></i> عرض
-                                            </a>
+                                            <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
+                                                <a href="/local_services/view_order.php?id=<?php echo $o['id']; ?>" class="btn btn-primary btn-sm">
+                                                    <i class="las la-eye"></i> عرض
+                                                </a>
+                                                <form action="/local_services/admin/actions/update_order_status.php" method="POST"
+                                                      style="display:flex;align-items:center;gap:5px;">
+                                                    <input type="hidden" name="order_id" value="<?php echo $o['id']; ?>">
+                                                    <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
+                                                    <select name="new_status"
+                                                            style="background:var(--card2,#0e1726);color:var(--text2,#e0e6ed);border:1px solid var(--border,#1b2e4b);border-radius:6px;padding:4px 6px;font-family:'Tajawal',sans-serif;font-size:11px;">
+                                                        <option value="pending"     <?php echo $o['status']==='pending'     ? 'selected' : ''; ?>>قيد الانتظار</option>
+                                                        <option value="processing"  <?php echo $o['status']==='processing'  ? 'selected' : ''; ?>>قيد المعالجة</option>
+                                                        <option value="in_progress" <?php echo $o['status']==='in_progress' ? 'selected' : ''; ?>>قيد التنفيذ</option>
+                                                        <option value="completed"   <?php echo $o['status']==='completed'   ? 'selected' : ''; ?>>مكتمل</option>
+                                                        <option value="cancelled"   <?php echo $o['status']==='cancelled'   ? 'selected' : ''; ?>>ملغي</option>
+                                                    </select>
+                                                    <button type="submit" class="btn btn-success btn-sm" title="تحديث الحالة">
+                                                        <i class="las la-save"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -2068,45 +2122,16 @@ body, .app-header, .app-sidebar, aside,
     </main>
 
     <script>
-        (function() {
-            const sidebar = document.getElementById('appSidebar');
-            const main = document.getElementById('appMain');
-            const btn = document.getElementById('sidebarToggle');
-            let mobile = window.innerWidth <= 900;
-
-            btn.addEventListener('click', () => {
-                if (mobile) {
-                    sidebar.classList.toggle('mobile-open');
-                } else {
-                    const collapsed = sidebar.classList.toggle('collapsed');
-                    main.classList.toggle('wide', collapsed);
-                }
-            });
-
-            // close sidebar on mobile when clicking outside
-            document.addEventListener('click', (e) => {
-                if (mobile && sidebar.classList.contains('mobile-open') &&
-                    !sidebar.contains(e.target) && !btn.contains(e.target)) {
-                    sidebar.classList.remove('mobile-open');
-                }
-            });
-
-            window.addEventListener('resize', () => {
-                mobile = window.innerWidth <= 900;
-                if (!mobile) sidebar.classList.remove('mobile-open');
-            });
-
-            // animate progress bar on load
-            document.querySelectorAll('.prog-fill').forEach(el => {
-                const w = el.style.width;
+        // ── Progress bar animation ─────────────────────────────────
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.prog-fill').forEach(function (el) {
+                var w = el.style.width;
                 el.style.width = '0';
-                requestAnimationFrame(() => {
-                    setTimeout(() => {
-                        el.style.width = w;
-                    }, 200);
+                requestAnimationFrame(function () {
+                    setTimeout(function () { el.style.width = w; }, 200);
                 });
             });
-        })();
+        });
     </script>
 </body>
 

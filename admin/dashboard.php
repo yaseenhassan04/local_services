@@ -1470,105 +1470,132 @@ if (!function_exists('translate_role')) {
             animation-delay: .25s;
         }
     
-/* ══ LIGHT MODE ══════════════════════════════════════ */
-body.light-mode {
-    --dark:   #f0f2f5;
-    --card:   #ffffff;
-    --border: #e5e7eb;
-    --txt:    #1a2332;
-    --muted:  #6b7280;
-    --dark2:  #374151;
-    --pri-lt: rgba(67,97,238,.1);
-    --suc-lt: rgba(0,171,85,.1);
-    --war-lt: rgba(226,160,63,.1);
-    --dan-lt: rgba(231,81,90,.1);
-    --inf-lt: rgba(33,150,243,.1);
-    --pur-lt: rgba(128,93,202,.1);
-}
-body.light-mode,
-body.light-mode .top-nav,
-body.light-mode .sidebar,
-body.light-mode nav.top-nav { background-color: #ffffff; }
-body.light-mode .top-nav,
-body.light-mode nav.top-nav { border-bottom-color: #e5e7eb; box-shadow: 0 2px 10px rgba(0,0,0,.08); }
-body.light-mode .sidebar     { border-left-color: #e5e7eb; }
-body.light-mode .xcard,
-body.light-mode .fin-card,
-body.light-mode .report-card,
-body.light-mode .card,
-body.light-mode [class*="-card"] { background:#ffffff; border-color:#e5e7eb; }
-body.light-mode .nav-icon    { background:#f3f4f6; border-color:#e5e7eb; color:#6b7280; }
-body.light-mode .side-link   { color:#6b7280; }
-body.light-mode .side-link:hover { background:rgba(67,97,238,.08); color:var(--primary); }
-body.light-mode .side-link.active { background:var(--primary); color:#fff; }
-body.light-mode .select-status,
-body.light-mode select,
-body.light-mode input,
-body.light-mode textarea     { background:#f9fafb; border-color:#e5e7eb; color:#1a2332; }
-body.light-mode table thead th { background:#1a2332 !important; color:#fff !important; }
-body.light-mode .commission-box { background:linear-gradient(135deg,rgba(67,97,238,.05),rgba(0,171,85,.05)); }
-body.light-mode .commission-row { border-bottom-color:#e5e7eb; }
-body.light-mode .proof-box   { background:#f9fafb; border-color:#e5e7eb; }
-body, .top-nav, nav.top-nav, .sidebar, .xcard, .fin-card, .report-card,
-.nav-icon, .commission-box, .card { transition: background .3s, border-color .3s, color .2s !important; }
 
-/* ══ LIGHT MODE — Sidebar Fix ══ */
-body.light-mode {
-    --dark-bg:    #f0f4f8;
-    --sidebar-bg: #ffffff;
-    --card-bg:    #ffffff;
-    --card-border:#e5e7eb;
-    --header-bg:  #ffffff;
-    --text-primary:#1a2332;
-    --text-muted: #6b7280;
-    --text-dark:  #374151;
-    --primary-light: rgba(67,97,238,.1);
-    --success-light: rgba(0,171,85,.1);
-    --warning-light: rgba(226,160,63,.1);
-    --danger-light:  rgba(231,81,90,.1);
-    --info-light:    rgba(33,150,243,.1);
-    --purple-light:  rgba(128,93,202,.1);
+/* ══ LIGHT MODE — Dashboard ══════════════════════════════ */
+html.light-mode, body.light-mode {
+    --bg:       #f0f4f8;
+    --bg2:      #e8edf3;
+    --surface:  #ffffff;
+    --surface2: #f1f5f9;
+    --border:   rgba(0,0,0,.09);
+    --border2:  rgba(0,0,0,.14);
+    --text:     #0f172a;
+    --text2:    #334155;
+    --text3:    #64748b;
 }
-body.light-mode                   { background: #f0f4f8 !important; color: #1a2332 !important; }
-body.light-mode .app-sidebar      { background: #ffffff !important; border-color: #e5e7eb !important; box-shadow: -2px 0 12px rgba(0,0,0,.06) !important; }
-body.light-mode .app-header,
-body.light-mode header.app-header { background: #ffffff !important; border-bottom-color: #e5e7eb !important; box-shadow: 0 2px 10px rgba(0,0,0,.07) !important; }
-body.light-mode .sidebar-section-title { color: #9ca3af !important; }
-body.light-mode .sidebar-menu a   { color: #6b7280 !important; }
-body.light-mode .sidebar-menu a:hover { background: rgba(67,97,238,.08) !important; color: #4361ee !important; }
-body.light-mode .sidebar-menu a.active { background: #4361ee !important; color: #fff !important; }
-body.light-mode .sidebar-menu a.logout-link { color: #e7515a !important; }
-body.light-mode .sidebar-menu a.logout-link:hover { background: rgba(231,81,90,.08) !important; }
-body.light-mode .user-avatar-wrap,
-body.light-mode .profile-mini     { border-color: #e5e7eb !important; }
-body.light-mode .profile-mini .pname  { color: #1a2332 !important; }
-body.light-mode .profile-mini .pemail { color: #6b7280 !important; }
+body.light-mode { background: var(--bg) !important; color: #0f172a !important; }
 
-/* Cards & Content */
-body.light-mode .xato-card,
-body.light-mode .stat-card,
+/* ── Header ── */
+body.light-mode .app-header {
+    background: #ffffff !important;
+    border-bottom: 1px solid rgba(0,0,0,.1) !important;
+    box-shadow: 0 2px 12px rgba(0,0,0,.07) !important;
+}
+body.light-mode .logo-text         { color: #0f172a !important; }
+body.light-mode .hdr-toggle        { color: #334155 !important; }
+body.light-mode .hdr-pill          { background: rgba(0,0,0,.06) !important; color: #334155 !important; border-color: rgba(0,0,0,.1) !important; }
+body.light-mode #themeToggle       { border-color: rgba(0,0,0,.15) !important; color: #334155 !important; }
+body.light-mode .avatar-name       { color: #0f172a !important; }
+body.light-mode .avatar-role       { color: #3b82f6 !important; }
+body.light-mode .hdr-avatar        { background: #fff !important; border-color: rgba(0,0,0,.12) !important; }
+body.light-mode .hdr-btn           { background: #fff !important; border-color: rgba(0,0,0,.12) !important; color: #334155 !important; }
+
+/* ── Sidebar (adm-sidebar) ── */
+body.light-mode .adm-sidebar,
+body.light-mode aside              { background: #ffffff !important; border-color: rgba(0,0,0,.09) !important; box-shadow: -3px 0 12px rgba(0,0,0,.06) !important; }
+body.light-mode .adm-name          { color: #0f172a !important; }
+body.light-mode .adm-email         { color: #64748b !important; }
+body.light-mode .adm-group-hdr     { color: #64748b !important; }
+body.light-mode .adm-group-hdr:hover { background: rgba(59,130,246,.07) !important; color: #0f172a !important; }
+body.light-mode .adm-group-hdr.open { color: #0f172a !important; }
+body.light-mode .adm-items ul      { border-color: rgba(0,0,0,.08) !important; }
+body.light-mode .adm-items ul a    { color: #475569 !important; }
+body.light-mode .adm-items ul a:hover { background: rgba(59,130,246,.08) !important; color: #1d4ed8 !important; }
+body.light-mode .adm-items ul a.active { background: rgba(59,130,246,.12) !important; color: #1d4ed8 !important; border-color: rgba(59,130,246,.25) !important; }
+body.light-mode .adm-edit-link     { background: #f1f5f9 !important; border-color: rgba(0,0,0,.1) !important; color: #475569 !important; }
+body.light-mode .adm-footer        { color: #94a3b8 !important; border-color: rgba(0,0,0,.08) !important; }
+
+/* ── Page titles & text ── */
+body.light-mode .pg-title          { color: #0f172a !important; }
+body.light-mode .pg-sub            { color: #475569 !important; }
+body.light-mode .pg-sub a          { color: #2563eb !important; }
+
+/* ── Stat cards ── */
+body.light-mode .stat-card         { background: #ffffff !important; border-color: rgba(0,0,0,.08) !important; box-shadow: 0 2px 8px rgba(0,0,0,.06) !important; }
+body.light-mode .stat-val          { color: #0f172a !important; }
+body.light-mode .stat-lbl          { color: #475569 !important; }
+body.light-mode .stat-sub          { color: #64748b !important; }
+
+/* ── Cards ── */
 body.light-mode .nx-card,
-body.light-mode [class*="card"]   { background: #ffffff !important; border-color: #e5e7eb !important; }
-body.light-mode .header-logo span,
-body.light-mode .logo-text        { color: #1a2332 !important; }
-body.light-mode .header-toggle,
-body.light-mode .hdr-toggle       { color: #6b7280 !important; }
-body.light-mode .header-user .user-name { color: #1a2332 !important; }
-body.light-mode .header-user .user-role { color: #4361ee !important; }
-body.light-mode ::-webkit-scrollbar-track { background: #f1f5f9 !important; }
-body.light-mode ::-webkit-scrollbar-thumb { background: #d1d5db !important; }
+body.light-mode .svc-card          { background: #ffffff !important; border-color: rgba(0,0,0,.08) !important; box-shadow: 0 2px 8px rgba(0,0,0,.05) !important; }
+body.light-mode .nx-card-hdr       { border-color: rgba(0,0,0,.07) !important; }
+body.light-mode .nx-card-hdr h5    { color: #0f172a !important; }
+body.light-mode .nx-card-body      { color: #334155 !important; }
 
-/* Tables */
-body.light-mode table thead th    { background: #f1f5f9 !important; color: #374151 !important; border-color: #e5e7eb !important; }
-body.light-mode table tbody td    { color: #374151 !important; border-color: #f1f5f9 !important; }
-body.light-mode table tbody tr:hover { background: #f8fafc !important; }
+/* ── Quick action cards ── */
+body.light-mode .qa-card           { background: #f8fafc !important; border-color: rgba(0,0,0,.08) !important; }
+body.light-mode .qa-title          { color: #0f172a !important; }
+body.light-mode .qa-sub            { color: #475569 !important; }
+body.light-mode .qa-arr            { color: #94a3b8 !important; }
 
-/* Smooth transition */
-.app-sidebar, .app-header, header.app-header,
-.sidebar-menu a, [class*="card"], body {
-    transition: background .25s ease, border-color .25s ease, color .2s ease, box-shadow .25s ease !important;
+/* ── Tables ── */
+body.light-mode .nx-table thead th { color: #374151 !important; background: #f1f5f9 !important; border-color: rgba(0,0,0,.08) !important; }
+body.light-mode .nx-table tbody tr { border-color: rgba(0,0,0,.06) !important; }
+body.light-mode .nx-table tbody tr:hover { background: #f8fafc !important; }
+body.light-mode .nx-table tbody td { color: #374151 !important; }
+body.light-mode .t-main            { color: #0f172a !important; }
+body.light-mode .t-id              { color: #2563eb !important; }
+body.light-mode .t-green           { color: #059669 !important; }
+
+/* ── Service cards ── */
+body.light-mode .svc-name          { color: #0f172a !important; }
+body.light-mode .svc-meta          { color: #64748b !important; }
+body.light-mode .svc-price         { color: #059669 !important; }
+body.light-mode .svc-thumb-placeholder { background: #f1f5f9 !important; }
+
+/* ── User items ── */
+body.light-mode .adm-profile       { border-color: rgba(0,0,0,.08) !important; }
+body.light-mode [style*="color:var(--text)"]   { color: #0f172a !important; }
+body.light-mode [style*="color:var(--text2)"]  { color: #334155 !important; }
+body.light-mode [style*="color:var(--text3)"]  { color: #64748b !important; }
+
+/* ── Progress bar ── */
+body.light-mode .prog-track        { background: #e2e8f0 !important; }
+body.light-mode .prog-head         { color: #0f172a !important; }
+
+/* ── Empty state ── */
+body.light-mode .empty-icon        { background: #f1f5f9 !important; border-color: rgba(0,0,0,.08) !important; color: #94a3b8 !important; }
+body.light-mode .empty h4          { color: #0f172a !important; }
+body.light-mode .empty p           { color: #64748b !important; }
+
+/* ── Smooth transition ── */
+body, .app-header, .adm-sidebar, aside,
+.stat-card, .nx-card, .svc-card, .qa-card,
+.nx-table thead th, .nx-table tbody td,
+.adm-group-hdr, .adm-items ul a, .adm-name,
+.pg-title, .stat-val, .nx-card-hdr h5 {
+    transition: background .25s ease, border-color .25s ease,
+                color .2s ease, box-shadow .25s ease !important;
 }
+
 </style>
+<script>
+/* تطبيق الثيم قبل رسم الصفحة لمنع الوميض */
+if (localStorage.getItem('khadamati_theme') === 'light') {
+    document.documentElement.classList.add('light-mode');
+}
+/* placeholder حتى يتحمل admin_sidebar ويعرّف الدالة الحقيقية */
+window.toggleTheme = window.toggleTheme || function () {
+    var isLight = document.body.classList.toggle('light-mode');
+    document.documentElement.classList.toggle('light-mode', isLight);
+    localStorage.setItem('khadamati_theme', isLight ? 'light' : 'dark');
+    var icon  = document.getElementById('themeIcon');
+    var label = document.getElementById('themeLabel');
+    if (icon)  icon.className    = isLight ? 'las la-moon' : 'las la-sun';
+    if (label) label.textContent = isLight ? 'داكن' : 'فاتح';
+};
+</script>
 </head>
 
 <body>
@@ -2077,45 +2104,16 @@ body.light-mode table tbody tr:hover { background: #f8fafc !important; }
     </main>
 
     <script>
-        (function() {
-            const sidebar = document.getElementById('appSidebar');
-            const main = document.getElementById('appMain');
-            const btn = document.getElementById('sidebarToggle');
-            let mobile = window.innerWidth <= 900;
-
-            btn.addEventListener('click', () => {
-                if (mobile) {
-                    sidebar.classList.toggle('mobile-open');
-                } else {
-                    const collapsed = sidebar.classList.toggle('collapsed');
-                    main.classList.toggle('wide', collapsed);
-                }
-            });
-
-            // close sidebar on mobile when clicking outside
-            document.addEventListener('click', (e) => {
-                if (mobile && sidebar.classList.contains('mobile-open') &&
-                    !sidebar.contains(e.target) && !btn.contains(e.target)) {
-                    sidebar.classList.remove('mobile-open');
-                }
-            });
-
-            window.addEventListener('resize', () => {
-                mobile = window.innerWidth <= 900;
-                if (!mobile) sidebar.classList.remove('mobile-open');
-            });
-
-            // animate progress bar on load
-            document.querySelectorAll('.prog-fill').forEach(el => {
-                const w = el.style.width;
+        // ── Progress bar animation ─────────────────────────────────
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.prog-fill').forEach(function (el) {
+                var w = el.style.width;
                 el.style.width = '0';
-                requestAnimationFrame(() => {
-                    setTimeout(() => {
-                        el.style.width = w;
-                    }, 200);
+                requestAnimationFrame(function () {
+                    setTimeout(function () { el.style.width = w; }, 200);
                 });
             });
-        })();
+        });
     </script>
 </body>
 
